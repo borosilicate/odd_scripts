@@ -1,0 +1,9 @@
+#if the files are like _1.txt _2.txt ... _10.txt 
+#they wil be out of order and need a zero in the front to fix the order this will fix the names
+for d in os.listdir('pulled'): 
+      print(d) 
+      for i in os.listdir('pulled/'+d): 
+             temp = re.findall(r'\d', i) 
+             if(len(temp)==1): 
+             n=i.split('_')[0]+'_0'+i.split('_')[1] 
+             os.system('git mv pulled/'+d+'/'+i+' pulled/'+d+'/'+n) 
